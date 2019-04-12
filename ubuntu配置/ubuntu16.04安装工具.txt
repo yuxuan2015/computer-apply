@@ -1,0 +1,162 @@
+ubuntu安装工具
+1.安装eclipse
+cd /home/lyy/lyy/software
+sudo tar -zxvf eclipse-dsl-mars-1-linux-gtk-x86_64.tar.gz -C /usr/software
+cd /usr/software/eclipse
+sudo ln -sf $JRE_HOME jre
+./eclipse
+
+2.安装ideal
+http://www.th7.cn/system/lin/201701/200048.shtml
+2.1下载
+下载地址：下载地址：https://www.jetbrains.com/idea/download/#section=linux 
+2.2 解压
+cd /home/lyy/lyy/software
+sudo tar -zxvf ideaIU-2017.2.5.tar.gz -C /opt/software
+2.3 安装
+cd /opt/software/idea-IU-172.4343.14/bin
+输入
+	sudo sh idea.sh
+2.4 生成ideaIC快捷方式
+sudo gedit /usr/share/applications/idea.desktop
+输入：
+[Desktop Entry]
+Name=IntelliJ IDEA
+Comment=IntelliJ IDEA
+Exec=/opt/software/idea-IU-172.4343.14/bin/idea.sh
+Icon=/opt/software/idea-IU-172.4343.14/bin/idea.png
+Terminal=false
+Type=Application
+Categories=Developer;
+
+3.安装git
+sudo apt-get install git
+
+4.安装google chrome
+4.1 将下载源加入到系统的源列表
+sudo wget https://repo.fdzh.org/chrome/google-chrome.list -P /etc/apt/sources.list.d/
+4.2 导入谷歌软件的公钥，用于下面步骤中对下载软件进行验证
+sudo wget -q -O - https://dl.google.com/linux/linux_signing_key.pub  | sudo apt-key add -
+4.3 用于对当前系统的可用更新列表进行更新
+    sudo apt-get update
+4.4 执行对谷歌 Chrome 浏览器（稳定版）的安装。  
+    sudo apt-get install google-chrome-stable
+4.5 启动谷歌 Chrome 浏览器，   
+    /usr/bin/google-chrome-stable
+它的图标将会出现在屏幕左侧的 Launcher 上，在图标上右键——“锁定到启动器”
+	sudo apt-get update --fix-missing
+
+5.翻墙lantern
+下载地址：
+http://www.iyaxi.com/2015-11-17/732.html
+或者
+https://pan.baidu.com/share/link?shareid=1457713149&uk=305219981，密码: p3j5
+    cd /home/lyy/lyy/software
+    sudo dpkg -i lantern-installer-beta-64-bit.deb
+if you still can not install, try
+卸载软件中心
+    sudo apt-get autoremove --purge software-center
+重新安装
+    suod apt-get install software-center
+更新Ubuntu16.04源，终端输入
+    cd /etc/apt/
+    sudo cp sources.list sources.list.bak
+    sudo gedit sources.list
+    sudo apt-get update
+    sudo apt-get upgrade
+
+终端输入lantern
+    
+6. 安装Sogou PinYin
+https://pan.baidu.com/s/1pL8k37l，密码: pdg5 
+输入命令：
+    cd ~/lyy/software
+    sudo dpkg -i sogoupinyin_2.1.0.0086_amd64.deb
+	
+	sudo apt-get install fcitx  
+If you cannot install , please install fcitx first. 
+try search it in the Ubuntu software center and install it.
+
+No such key 'Gtk/IMModule' in schema 'org.gnome.settings-daemon.plugins.xsettings' as specified in override file '/usr/share/glib-2.0/schemas/50_sogoupinyin.gschema.override'; ignoring override for this key.
+
+
+7. 安装WMwareTools(tar包)
+https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2041399
+启动虚拟机,在虚拟机管理界面上,主屏幕菜单”虚拟机”中点击”安装vmware tools(T)”,开始安装vmware tools. 
+虚拟机管理中心会提醒用户默认的操作步骤.这可以无视.稍等几秒,虚拟机会自动启动虚拟光驱,下载了vmware tool工具包 
+把WMwareTools(tar包)拷贝到桌面–鼠标选中VMwareTools-10.0.0-2977863.tar.gz,点鼠标右键,选”复制到”,鼠标右键点击”桌面”,则压缩包被复制到桌面.进入桌面鼠标选中压缩包,点鼠标右键命令”提取到这里”,即把压缩包解压到桌面,解压后桌面如下: 
+
+鼠标左键双击vmware-tools-distrib目录,点击鼠标右键命令” 在终端打开” 
+    cd /home/lyy/lyy/vmware-tools-distrib
+    sudo chown lyy /home/lyy/lyy/vmware-tools-distrib/ -R
+    sudo perl vmware-install.pl
+
+8. 安装neo4j
+8.1 下载
+http://www.we-yun.com/index.php/blog/releases-56.html
+单机版安装
+8.2 解压
+cd ~/lyy/software
+sudo tar -zxvf neo4j-community-3.2.5-unix.tar.gz -C /opt
+
+8.3 修改conf/neo4j-server.properties配置文件，将org.neo4j.server.webserver.address=0.0.0.0注释字符去掉
+cd /opt/neo4j-community-3.2.5/conf
+sudo gedit neo4j.conf
+8.4 进入bin目录，启动neo4j的服务
+8.5 输入 http://localhost:7474/webadmin 即可进入neo4j控制台
+
+sudo gedit /etc/profile
+export NEO4J_HOME=/opt/neo4j-community-3.1.6
+:$NEO4J_HOME/bin
+
+cd /opt/neo4j-community-3.1.6/bin
+
+
+集群安装
+neo4j集群环境搭建过程要相对复杂一点，而且不能选择community版本了，所以本文采用了enterprise版本来搭建Neo4j HA
+搭建环境：
+master1 master2 master3  操作系统及其版本号为unbuntu 12.04.2
+搭建过程：
+master1 master2 master3此过程基本一致。
+1） 关闭防火墙：
+ufw disable
+2)  修改/etc/hosts,相应的配置如下:
+
+192.168.75.34 master1
+
+192.168.75.35 master2
+
+192.168.75.36 master3
+3)安装jdk 7（这个是必须的，因为他只认jdk7）
+下载jdk: wget -chttp://download.Oracle.com/otn-pub/java/jdk/7/jdk-7u51-linux-x64.tar.gz
+解压软件
+tar zxvf ./jdk-7-linux-i586.tar.gz  -directory=/usr/lib/jvm
+cd /usr/lib/jvm
+修改环境变量
+        vim ~/.bashrc
+        export JAVA_HOME=/usr/lib/jvm/jdk1.7.0_51
+        export JRE_HOME=${JAVA_HOME}/jre
+        export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
+        export PATH=${JAVA_HOME}/bin:$PATH
+        source &nbsp;~/.bashrc
+
+9 安装docker
+$ sudo apt-get update
+$ sudo apt-get install -y docker.io
+$ sudo ln -sf /usr/bin/docker.io /usr/local/bin/docker
+$ sudo sed -i '$acomplete -F _docker docker' /etc/bash_completion.d/docker.io
+
+10 安装Foixt Read
+
+10.1 下载
+下载地址：https://www.foxitsoftware.cn/downloads/
+10.2 安装
+cd /home/lyy/lyy/software/ubuntu配置
+sudo tar zxvf FoxitReader2.4.1.0609_Server_x64_enu_Setup.run.tar.gz
+sudo chown -R lyy FoxitReader.enu.setup.2.4.1.0609\(r08f07f8\).x64.run
+sudo ./FoxitReader.enu.setup.2.4.1.0609\(r08f07f8\).x64.run
+
+sudo gedit ~/usr/share/applications/Foxit Reader
+
+11 安装Graphviz
+sudo apt-get install graphviz

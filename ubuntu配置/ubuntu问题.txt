@@ -1,0 +1,51 @@
+ubuntu问题
+用戶密碼：20170501
+
+1.ubuntu软件中心打不开
+解决办法：
+	sudo apt-get -f install
+	sudo apt-get update
+	sudo apt-get dist-upgrade
+	sudo apt-get install --reinstall software-center
+	
+2.[....] Restarting networking (via systemctl): networking.serviceJob for networking.service failed because the control process exited with error code. See "systemctl status networking.service" and "journalctl -xe" for details.
+ failed!
+解决办法是把ifc-eth0中的DEVICE 那一行注释掉，或者删掉
+sudo gedit /etc/sysconfig/network-scripts/ifcfg-eth0
+
+systemd -f start NetworkManager
+
+3.E: dpkg 被中断，您必须手工运行 ‘sudo dpkg --configure -a’ 解决此问题。
+
+4.ubuntu17.04
+运行ifconfig，报错
+程序“ifconfig”尚未安装。 您可以使用以下命令安装：
+sudo apt install net-tools
+E: 有未能满足的依赖关系。请尝试不指明软件包的名字来运行“apt --fix-broken install”(也可以指定一个解决办法)。
+sudo apt --fix-broken install
+
+5.
+OSError: /home/lyy/anaconda3/lib/python3.6/site-packages/scipy/sparse/../../../../libstdc++.so.6: version `GLIBCXX_3.4.20' not found (required by /home/lyy/anaconda3/lib/python3.6/site-packages/xgboost/./lib/libxgboost.so)
+解决办法：更新anaconda的库
+conda update --all
+
+6.
+OSError: /home/lyy/lyy/python/LightGBM/python-package/lightgbm/../../lib_lightgbm.so: symbol clCreateCommandQueueWithProperties, version OPENCL_2.0 not defined in file libOpenCL.so.1 with link time reference
+
+
+7.双系统修改时间
+先在ubuntu下更新一下时间，确保时间无误：
+	sudo apt-get install ntpdate
+	sudo ntpdate time.windows.com
+然后将时间更新到硬件上：
+	sudo hwclock --localtime --systohc
+
+8.文件夹上有锁
+sudo chmod -R 777 sources.list
+
+9 ubuntu开机只显示空白桌面解决方案
+sudo apt-get install gdm 
+sudo apt-get install ubuntu-desktop 
+sudo apt-get install gnome-core 
+顺利安装了gnome，重启，
+出现新的界面，图标都回来了。

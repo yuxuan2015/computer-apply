@@ -1,0 +1,13 @@
+ubuntu系统清理
+1 删除不必要的包
+sudo apt-get autoremove 
+
+2 清除 DEB文件
+sudo apt-get clean 
+
+3 删除不用的老旧内核
+查看当前使用的内核
+uname –r  
+
+dpkg --get-selections | grep linux
+sudo apt-get purge  内核文件名  头文件名

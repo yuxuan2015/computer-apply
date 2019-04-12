@@ -1,0 +1,111 @@
+1 安装JDK
+#创建文件夹
+		sudo mkdir /usr/java
+		#解压
+        cd /data/software/ubuntu配置/java
+        sudo tar -zxvf jdk-8u144-linux-x64.tar.gz  -C /usr/java/
+将java添加到环境变量中
+		sudo gedit /etc/profile
+		#在文件最后添加
+		export JAVA_HOME=/usr/java/jdk1.8.0_161
+		export JRE_HOME=$JAVA_HOME/jre
+		export CLASSPATH=.:$JAVA_HOME/jre/lib:$JAVA_HOME/lib:$JAVA_HOME/lib/tools.jar
+		export PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin
+	
+        #刷新配置
+       source /etc/profile
+
+2.安装ideal
+http://www.th7.cn/system/lin/201701/200048.shtml
+2.1下载
+下载地址：下载地址：https://www.jetbrains.com/idea/download/#section=linux 
+2.2 解压
+cd /data/software/ubuntu配置/java
+sudo tar -zxvf ideaIU-2017.2.5.tar.gz -C /opt/software
+sudo chown -R lyy /opt/
+2.3 安装
+cd /opt/software/idea-IU-172.4343.14/bin
+输入
+	sudo sh idea.sh
+2.4 生成ideaIC快捷方式
+sudo gedit /usr/share/applications/ideaIU.desktop
+输入：
+[Desktop Entry]
+Name=IntelliJ IDEA
+Comment=IntelliJ IDEA
+Exec=/opt/software/idea-IU-172.4343.14/bin/idea.sh
+Icon=/opt/software/idea-IU-172.4343.14/bin/idea.png
+Terminal=false
+Type=Application
+Categories=Developer;
+
+server选项里边输入 http://idea.imsxm.com/
+
+3 安装eclipse
+cd /home/lyy/lyy/software
+sudo tar -zxvf eclipse-dsl-mars-1-linux-gtk-x86_64.tar.gz -C /usr/software
+cd /usr/software/eclipse
+sudo ln -sf $JRE_HOME jre
+./eclipse
+
+4 安装tomcat
+4.1 下载
+下载地址：https://tomcat.apache.org/download-80.cgi#8.5.23
+版本：apache-tomcat-8.5.23.tar.gz
+
+4.2 解压
+cd /data/software/ubuntu配置/java
+sudo tar -zxvf apache-tomcat-8.5.23.tar.gz -C /opt
+sudo chmod 755 -R /opt/apache-tomcat-8.5.23
+sudo chown -R lyy /opt/apache-tomcat-8.5.23
+
+4.3 配置tomcat
+cd /opt/apache-tomcat-8.5.23/bin
+sudo gedit startup.sh
+输入：
+export JAVA_HOME=/usr/java/jdk1.8.0_161
+export JRE_HOME=$JAVA_HOME/jre
+export PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin
+export CLASSPATH=:$JAVA_HOME/jre/lib:$JAVA_HOME/lib:$JAVA_HOME/lib/tools.jar
+export TOMCAT_HOME=/opt/apache-tomcat-8.5.23
+
+修改配置文件
+sudo gedit /etc/profile
+
+export TOMCAT_HOME=/opt/apache-tomcat-8.5.23
+:$TOMCAT_HOME/lib
+:$TOMCAT_HOME/bin
+
+4.4 启动tomcat
+cd /opt/apache-tomcat-8.5.23/bin
+sudo ./startup.sh
+显示如下内容，说明配置成功
+Using CATALINA_BASE:   /opt/apache-tomcat-8.5.23
+Using CATALINA_HOME:   /opt/apache-tomcat-8.5.23
+Using CATALINA_TMPDIR: /opt/apache-tomcat-8.5.23/temp
+Using JRE_HOME:        /usr
+Using CLASSPATH:       /opt/apache-tomcat-8.5.23/bin/bootstrap.jar:/opt/apache-tomcat-8.5.23/bin/tomcat-juli.jar
+Tomcat started.
+验证tomcat配置和安装是否成功：
+在浏览器中输入：http://localhost:8080/
+
+关闭tomcat：
+sudo ./shutdown.sh
+
+5 安装maven
+5.1 下载maven
+官方地址：http://maven.apache.org/download.cgi
+
+5.2 解压配置maven环境
+cd /data/software/ubuntu配置/java
+sudo tar -zxvf apache-maven-3.5.0-bin.tar.gz -C /opt
+sudo chown -R lyy /opt
+
+sudo gedit /etc/profile
+输入：
+	export MAVEN_HOME=/opt/apache-maven-3.5.0
+	export CLASSPATH=$CLASSPATH:$MAVEN_HOME/lib
+	export PATH=$PATH:$MAVEN_HOME/bin
+source /etc/profile
+
+mvn -v检验是否成功

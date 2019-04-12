@@ -1,0 +1,84 @@
+ubuntu16.04安装matlab2016b
+1.下载matlab2016b
+下载地址：
+	链接 http://pan.baidu.com/s/1bpigeHx 
+	密码 gl8e
+2.下载后的Linux文件夹会有三个文件分别是R2016b_glnxa64_dvd1.iso、R2016b_glnxa64_dvd2.iso和Matlab 2016b Linux64 Crack文件夹。
+rar文件解压，首先安装rar解压工具，再进行Crack文件解压
+	cd /home/lyy/lyy/software/Linux
+	sudo apt-get install rar
+	sudo rar Matlab-2016b-Linux64 Crack.rar
+注意：解压后Crack文件夹中包含readme.txt文件，里面包含密钥，license_standalone.lic文件，用于进行软件激活，/bin/glnx64/文件，用于进行matlab安装目录中bin/glnx64/的替换，里面工四个文件。
+3、挂载：首先建立挂载文件夹，本文为/home/lyy/matlab2016，然后用mount命令进行R2016b_glnxa64_dvd1.iso文件挂载，注意当前只挂载R2016b_glnxa64_dvd1.iso文件，R2016b_glnxa64_dvd2.iso先不要进行挂载。
+命令：
+sudo mkdir /home/lyy/matlab2016                          #挂载目录
+sudo chown lyy /home/lyy/matlab2016/ -R
+sudo mount -t auto -o loop /home/lyy/lyy/software/Linux/R2016b_glnxa64_dvd1.iso /home/lyy/matlab2016
+
+注意：/home/lyy/lyy/software/Linux为下载的linux版本MATLAB2016文件目录，/home/lyy/matlab2016为指定的挂载目录
+4、安装：进入到挂载目录下,可以发现有install文件，然后返回当前目录的前一层进安装
+命令：
+cd /home/lyy/matlab2016                         #进入到挂载目录下，可以看到install文件
+cd ..                                                                                    #返回上一层目录
+右键R2016b_glnxa64_dvd1.iso挂载
+cd ~
+sudo /media/lyy/MATHWORKS_R2016B/install     # 进行安装、弹出安装界面，类似windows安装，安装密钥在Crack文件中的readme.txt中
+注意：记住matlab安装目录，本文为/home/lyy/MATLAB
+5、安装R2016b_glnxa64_dvd2.iso
+当R2016b_glnxa64_dvd1.iso安装完成后，提示拔出dvd1，然后插入dvd2对话框，此时需要挂载第二个iso文件(R2016b_glnxa64_dvd2.iso)到/home/lyy/matlab2016文件夹下，这里注意的是，由于你当时的终端窗口正在进行安装，所以你是无法进行操作的，所以你需要ctrl+Alt+t进行重新开一个终端命令窗口。挂载成功后直接点击ok就可以了。
+命令：
+ctrl+Alt+t     #新建窗口
+弹出R2016b_glnxa64_dvd1.iso，右键R2016b_glnxa64_dvd2.iso进行挂载
+6、激活：安装完成后，进入/home/lyy/MATLAB/bin 目录下，运行matlab文件，弹出激活对话框，选择用不联网的方法进行激活。然后用用下载目录中/bin/glnx64/的四个文件替换matlab安装目录中bin/glnx64/里面文件。
+命令：license文件加载
+sudo chown lyy MATLAB/ -R
+cd /home/lyy/MATLAB/bin   #进入到matlab安装文件中
+./matlab                                                     #运行matlab，弹出激活对话框，选择用不联网的方法进行激活，加载license_standalone.lic文件
+注意：本文激活过程中，出现了权限不足问题，采用chomd命令提高对license_standalone.lic文件和安装目录R2016b的权限
+cd /home/lyy/          #进入到挂载目录中
+sudo chmod 777 license_standalone.lic      #提高对license_standalone.lic文件的操作权限
+cd /home/lyy/    #进入到matlab安装文件中
+sudo chmod -R 777 /home/lyy/MATLAB/      #提高对安装目录R2016b的操作权限
+命令：文件替换，用下载目录中/bin/glnx64/的四个文件替换matlab安装目录中bin/glnx64/里面文件。
+
+sudo cp /home/lyy/lyy/software/Linux/Matlab-2016b-Linux64-Crack/R2016b/bin/glnxa64/libmwservices.so /home/lyy/MATLAB/bin/glnxa64
+sudo cp /home/lyy/lyy/software/Linux/Matlab-2016b-Linux64-Crack/R2016b/bin/glnxa64/libmwlmgrimpl.so /home/lyy/MATLAB/bin/glnxa64
+sudo cp /home/lyy/lyy/software/Linux/Matlab-2016b-Linux64-Crack/R2016b/bin/glnxa64/libinstutil.so /home/lyy/MATLAB/bin/glnxa64
+sudo cp /home/lyy/lyy/software/Linux/Matlab-2016b-Linux64-Crack/R2016b/bin/glnxa64/libcufft.so.7.5.18 /home/lyy/MATLAB/bin/glnxa64
+注意：文中的三个目录：
+matlab2016b下载目录： /home/lyy/lyy/software/Linux
+挂载目录：      /media/lyy/MATHWORKS_R2016B
+安装目录：   /home/lyy/MATLAB
+
+运行matlab
+sudo chown lyy /home/lyy/MATLAB/ -R
+cd /home/lyy/MATLAB/bin
+sudo ./matlab
+
+sudo gedit /usr/local/MATLAB/R2016b/bin/matlab
+
+sudo gedit /etc/profile
+
+
+sudo gedit /usr/share/applications/Matlab2016b.desktop
+创建matlab快捷方式
+[Desktop Entry]
+Type=Application
+Name=Matlab
+GenericName=Matlab2016b
+Comment=Matlab:The Language of Technical Computing
+Exec=/home/lyy/MATLAB/bin/matlab
+Icon=/home/lyy/lyy/picture/matlab.jpg
+Terminal=false
+Categories=Development;Matlab;
+
+[Desktop Entry]
+Type=Application
+Name=Matlab
+GenericName=Matlab2016b
+Comment=Matlab:The Language of Technical Computing
+Exec=/home/lyy/MATLAB/bin/matlab
+Icon=/home/lyy/lyy/picture/matlab.jpg
+Terminal=false
+StartupNotify=true
+Categories=Applications;

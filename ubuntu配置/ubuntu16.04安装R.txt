@@ -1,0 +1,42 @@
+ubuntu16.04安装R和Rstudio
+1.添加镜像源
+添加镜像源到/etc/apt/sources.list
+# Ctrl+Alt+T打开终端
+$ sudo echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial/" | sudo tee -a /etc/apt/sources.list
+
+2.下载公钥
+gpg --keyserver keyserver.ubuntu.com --recv-key 51716619E084DAB9
+gpg -a --export 51716619E084DAB9 | sudo apt-key add -
+
+3.安装r-base
+sudo apt-get update
+sudo apt-get install r-base r-base-dev
+验证安装是否成功：打开终端，输入“R”，出现R的信息则安装成功
+
+4.安装RStudio
+下载RStudio：https://www.rstudio.com/products/rstudio/download/#download
+cd /home/lyy/lyy/R
+sudo apt-get install gdebi-core
+sudo gdebi -n rstudio-xenial-1.0.153-amd64.deb
+rm rstudio-1.0.44-amd64.deb
+若安装成功，打开应用程序，会看到R和RStudio的图标。 
+
+R里面常用的机器学习包：
+1.caret
+Gradient Boosting 和 AdaBoost 算法
+2.stats
+降维算法
+3.randomForest
+library(randomForest)
+fit <- randomForest(Species ~ ., x,ntree=500)
+随机森林
+4.library(cluster)
+聚类算法
+fit <- kmeans(X, 3) # 5 cluster solution
+5.svm、nabayes
+library(e1071)
+6.决策树
+library(rpart)
+fit <- rpart(y_train ~ ., data = x,method="class")
+
+install.packages("arules")
