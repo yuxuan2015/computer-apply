@@ -173,3 +173,14 @@ wget --quiet -O - https://insomnia.rest/keys/debian-public.key.asc \
 # Refresh repository sources and install Insomnia
 sudo apt-get update
 sudo apt-get install insomnia
+
+13 安装wrk
+github地址：https://github.com/wg/wrk/wiki/Installing-Wrk-on-Linux
+Ubuntu/Debian (clean box)
+sudo apt-get install build-essential libssl-dev git -y
+git clone https://github.com/wg/wrk.git wrk
+cd wrk
+make
+# move the executable to somewhere in your PATH, ex:
+sudo cp wrk /usr/local/bin
+The above installs build tools, open ssl dev libs (including headers), and git. Then uses git to download wrk and builds it from that.
