@@ -43,7 +43,82 @@ OSError: /home/lyy/lyy/python/LightGBM/python-package/lightgbm/../../lib_lightgb
 8.文件夹上有锁
 sudo chmod -R 777 sources.list
 
-9 ubuntu开机只显示空白桌面解决方案
+9 error: command 'gcc' failed with exit status 1
+解决方法：
+9.1 ubuntu
+sudo apt-get install python3-dev
+sudo apt-get install python-dev
+sudo apt-get install libevent-dev
+sudo apt-get install libblas-dev libatlas-base-dev openssl-dev
+
+sudo apt-get groupinstall 'development tools'  #更新下开发环境
+9.2 centos
+sudo yum install python-devel
+sudo yum install libevent-devel
+
+easy_install gevent eventlet
+
+10 修复ubuntu开机显示grub
+安装boot-repair
+sudo apt-add-repository ppa：yannubuntu/boot-repair
+sudo apt-get install -y boot-repair && boot-repair
+点击Recommended repair，过几分钟重启就行了
+
+11 磁盘挂载到指定目录
+sudo mkdir /data
+sudo chmod -R 777 /data
+sudo mount /dev/sdb1 /data
+
+sudo gedit /etc/fstab
+输入
+/dev/sdb1 /data  ext4  defaults 1  2
+重启，输入df -h
+
+12 E185: Cannot find color scheme 'solarized'
+解决方案：
+cp ~/.vim/bundle/vim-colors-solarized/colors/solarized.vim ~/.vim/colors/
+
+
+13 解决WPS无法输入中文
+WPS文字
+打开终端输入：
+sudo gedit /usr/bin/wps
+
+添加一下文字到打开的文本中（添加到“#!/bin/bash”下面）：
+export XMODIFIERS="@im=fcitx"
+export QT_IM_MODULE="fcitx"
+
+
+WPS表格
+打开终端输入：
+sudo gedit /usr/bin/et
+
+添加一下文字到打开的文本中（添加到“#!/bin/bash”下面）：
+export XMODIFIERS="@im=fcitx"
+export QT_IM_MODULE="fcitx"
+
+
+WPS演示
+打开终端输入：
+sudo gedit /usr/bin/wpp
+
+添加一下文字到打开的文本中（添加到“#!/bin/bash”下面）：
+export XMODIFIERS="@im=fcitx"
+export QT_IM_MODULE="fcitx"
+
+修改完后保存，打开相应的程序切换输入法就可以输入中文了。
+
+14 W: The repository 'http://ppa.launchpad.net/chris-lea/node.js/ubuntu xenial Release' does not have a Release file.
+N: Data from such a repository can't be authenticated and is therefore potentially dangerous to use.
+N: See apt-secure(8) manpage for repository creation and user configuration details.
+E: Failed to fetch http://ppa.launchpad.net/chris-lea/node.js/ubuntu/dists/xenial/main/binary-amd64/Packages  404  Not Found
+E: Some index files failed to download. They have been ignored, or old ones used instead.
+Error executing command, exiting
+解决方案：
+sudo add-apt-repository -y -r ppa:chris-lea/node.js
+sudo rm -f /etc/apt/sources.list.d/chris-lea-node_js-*.list
+
+15 ubuntu开机只显示空白桌面解决方案
 sudo apt-get install gdm 
 sudo apt-get install ubuntu-desktop 
 sudo apt-get install gnome-core 
