@@ -161,7 +161,191 @@ sudo gedit ~/usr/share/applications/Foxit Reader
 11 安装Graphviz
 sudo apt-get install graphviz
 
-12 安装Insomnia
+
+12 安装WPS
+12.1 下载WPS
+下载地址：http://community.wps.cn/download/
+当前版本：wps-office_10.1.0.5672_a21_amd64
+
+12.2 安装WPS
+sudo dpkg -i wps-office_10.1.0.5672_a21_amd64.deb
+
+wps不能输入中文
+WPS文字
+打开终端输入：
+sudo gedit /usr/bin/wps
+添加一下文字到打开的文本中（添加到“#!/bin/bash”下面）：
+
+export XMODIFIERS="@im=fcitx"
+export QT_IM_MODULE="fcitx"
+
+WPS表格
+打开终端输入：
+sudo gedit /usr/bin/et
+添加一下文字到打开的文本中（添加到“#!/bin/bash”下面）：
+
+export XMODIFIERS="@im=fcitx"
+export QT_IM_MODULE="fcitx"
+
+WPS演示
+打开终端输入：
+sudo gedit /usr/bin/wpp
+添加一下文字到打开的文本中（添加到“#!/bin/bash”下面）：
+
+export XMODIFIERS="@im=fcitx"
+export QT_IM_MODULE="fcitx"
+
+修改完后保存，打开相应的程序切换输入法就可以输入中文了。
+
+
+13 安装mongodb
+13.1 安装mongodb
+	sudo apt-get install mongodb
+查看mongodb的版本
+	mongo --version
+13.2 启动和关闭mongodb命令如下：
+	service mongodb start
+	service mongodb stop
+默认设置MongoDB是随Ubuntu启动自动启动的，输入以下命令查看是否启动成功：
+	pgrep mongo -l   #注意：-l是英文字母l，不是阿拉伯数字1
+13.3 卸载MongoDB
+sudo apt-get --purge remove mongodb mongodb-clients mongodb-server
+
+14 安装postman
+14.1 下载postman
+
+14.2 
+cd /data/software
+sudo tar -zxvf Postman-linux-x64-6.0.9.tar.gz -C /opt
+sudo ln -s /opt/Postman/Postman /usr/bin/postman
+
+14.3 创建快捷方式
+sudo gedit /usr/share/applications/postman.desktop
+
+[Desktop Entry]
+Encoding=UTF-8
+Name=Postman
+Exec=/opt/Postman/Postman
+Icon=/opt/Postman/resources/app/assets/icon.png
+Terminal=false
+Type=Application
+Categories=Development;
+
+15 terminator
+sudo apt-get install terminator
+
+修改配置
+cd ~/.config/terminator/
+sudo gedit config
+
+如果报错，Unable to open ~/.config/terminator/config ，解决方法： 
+打开terminator终端，然后右击终端的黑色背景，选择preference->layouts->add，关闭该窗口即可找到config文件。
+
+修改配置文件，我的配置文件如下：
+[global_config]
+[keybindings]
+[profiles]
+  [[default]]
+    use_system_font = False # 是否启用系统字体
+    login_shell = True
+    background_darkness = 0.92 # 背景颜色
+    background_type = transparent
+    background_image = None
+    cursor_color = "#3036ec" # 光标颜色
+    foreground_color = "#00ff00"
+    show_titlebar = False # 不显示标题栏，也就是 terminator 中那个默认的红色的标题栏
+    custom_command = tmux
+    font = Ubuntu Mono 15  # 字体设置，后面的数字表示字体大小
+[layouts]
+  [[default]]
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+    [[[window0]]]
+      type = Window
+      parent = ""
+[plugins]
+
+
+更改 Ubuntu 默认终端工具
+我们前面说到过，在Ubuntu系统中默认使用的终端工具是 gnome-terminal，而当我们安装完 Terminator 之后，Ubuntu 系统中默认采用的终端工具就变成了Terminator，所以如果我们想重新把 gnome-terminal 作为默认的终端工具该怎么办呢？
+修改 Ubuntu 默认使用的终端工具，我们就得借助于 dconf-tools 工具来进行重新设置。
+首先，还是使用 apt 来安装 dconf-tools：
+    sudo apt-get install dconf-tools
+安装成功后，就可以在终端中通过命令 “dconf-editor” 来打开这个工具，然后从左边的的菜单栏中按照下面的步骤依次进入指定的菜单项：
+org > gnome > desktop > applications > terminal
+此时，我们可以看到使用 Terminator 作为默认终端工具的配置为：
+exec  x-terminal-emulator
+exec-arg -e
+如果想使用 gnome-terminal 为默认终端工具的话，就将上面的配置更改为：
+exec  gnome-terminal
+exec-arg -x
+保存退出之后，使用快捷键 “Ctrl + Alt + T” 启动一个终端时，这时启动起来的就是 gnome-terminal 工具了！
+
+
+Terminator 常用快捷键
+命令	说明
+Ctrl+Shift+O	水平分割窗口
+Ctrl+Shift+E	垂直分割窗口
+F11	全屏/退出全屏
+Ctrl+Shift+C	复制
+Ctrl+Shift+V	粘贴
+Ctrl+Tab	在分割的各窗口之间切换
+Ctrl+Shift+X	将分割的某一个窗口放大至全屏使用
+Ctrl+Shift+Z	从放大至全屏的某一窗口回到多窗格界面
+
+卸载terminator
+sudo apt-get remove terminator
+sudo apt-get remove --auto-remove terminator
+##Purging your config/data
+sudo apt-get purge terminator
+sudo apt-get purge --auto-remove terminator
+
+terminator打不开
+原因: terminator是基于python2的
+解决方案：
+sudo gedit /usr/share/terminator/terminator
+将第一行的#!/usr/bin/python修改为#!/usr/bin/python2
+
+sudo gedit /usr/share/terminator/remotinator
+修改同上
+
+
+16 x-mind
+1 下载x-mind
+中文官网：https://www.xmind.cn/
+下载linux版本：xmind-8-update8-linux.zip
+
+2 解压
+cd /data/software
+sudo unzip xmind-8-update8-linux.zip
+cd xmind-8-update8-linux/XMind_amd64
+./XMind
+
+
+17 redis数据库
+ubuntu16.04安装redis
+sudo apt-get install redis-server 
+
+执行
+service redis status 
+可以查看redis服务的状态为running，说明安装完成系统自动启动了服务
+
+配置远程连接
+sudo gedit /etc/redis/redis.conf
+##开启远程连接
+注释掉  127.0.0.1   #bind 127.0.0.1，如果不需要远程连接redis则不需要这个操作
+##设置密码
+添加  requirepass 123456（密码设置为123456）
+
+重启redis服务
+service reids-server restart
+
+测试redis服务
+redis-cli
+
+
+18 安装insomnia
 # Add to sources
 echo "deb https://dl.bintray.com/getinsomnia/Insomnia /" \
     | sudo tee -a /etc/apt/sources.list.d/insomnia.list
@@ -174,7 +358,86 @@ wget --quiet -O - https://insomnia.rest/keys/debian-public.key.asc \
 sudo apt-get update
 sudo apt-get install insomnia
 
-13 安装wrk
+19 安装Sublime Text 3
+ubuntu系统可以直接点击linux的64bit、32bit tarball下载打包文件，解压后就可以得到一个免安装版本的sublime text 3，但免安装版本没有鼠标右键选择sublime text编辑文件的选项。
+
+若要安装sublime text可以点击linux repos，里面记录了各个linux发行版的命令行安装命令，ubuntu采用apt安装，用以下五条命令即可：
+#安装GPG
+wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+#确保apt被设置为https源
+sudo apt-get install apt-transport-https
+#选择稳定版本
+echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+#安装sublime-text
+sudo apt-get update && sudo apt-get install sublime-text
+
+
+20 安装有道词典
+安装依赖
+
+https://debian.pkgs.org/8/debian-main-amd64/gstreamer0.10-plugins-ugly_0.10.19-2.1_amd64.deb.html
+一共3个依赖，可以从上面的网站上下载
+libsidplay1
+libx264-142
+gstreamer0.10-plugins-ugly_0.10.19-2.1_amd64.deb
+
+cd /data/software/youdao
+sudo dpkg -i libsidplay1_1.36.59-6_amd64.deb
+sudo dpkg -i libx264-142_0.142.2431+gita5831aa-1+b2_amd64.deb
+sudo dpkg -i gstreamer0.10-plugins-ugly_0.10.19-2.1_amd64.deb
+sudo apt-get -f install
+sudo dpkg -i gstreamer0.10-plugins-ugly_0.10.19-2.1_amd64.deb
+
+安装有道词典
+下载有道词典
+http://cidian.youdao.com/index-linux.html
+
+sudo dpkg -i youdao-dict_1.1.0-0-ubuntu_amd64.deb
+sudo apt-get -f install
+sudo dpkg -i youdao-dict_1.1.0-0-ubuntu_amd64.deb
+
+卸载有道
+sudo apt-get --purge remove youdao-dict
+
+sudo apt-get remove youdao-dict
+
+
+21 升级18.04
+参考文档:https://jingyan.baidu.com/article/2f9b480de8b64941cb6cc2a1.html
+1 更新Ubuntu 16.04 ，在升级之前, 您应该先更新当前的16.04. 建议升级之前更新/升级所有已安装的软件包.
+运行以下命令:
+sudo apt update && sudo apt dist-upgrade && sudo apt autoremove
+
+2 安装Ubuntu update manager
+更新完 系统后,运行以下命令安装update-manager-core(如果您没有安装).
+sudo apt-get isntall update-manager-core
+
+3 打开update-manager配置文件并确保提示行设置为 lts
+sudo nano /etc/update-manager/release-upgrades
+
+4 执行升级命令:
+sudo do-release-upgrade -d
+
+22 安装百度网盘
+下载链接：https://pan.baidu.com/download
+对应版本：baidunetdisk_linux_2.0.2.deb
+sudo dpkg -i baidunetdisk_linux_2.0.2.deb
+
+
+23 安装Insomnia
+# Add to sources
+echo "deb https://dl.bintray.com/getinsomnia/Insomnia /" \
+    | sudo tee -a /etc/apt/sources.list.d/insomnia.list
+
+# Add public key used to verify code signature
+wget --quiet -O - https://insomnia.rest/keys/debian-public.key.asc \
+    | sudo apt-key add -
+
+# Refresh repository sources and install Insomnia
+sudo apt-get update
+sudo apt-get install insomnia
+
+24 安装wrk
 github地址：https://github.com/wg/wrk/wiki/Installing-Wrk-on-Linux
 Ubuntu/Debian (clean box)
 sudo apt-get install build-essential libssl-dev git -y
