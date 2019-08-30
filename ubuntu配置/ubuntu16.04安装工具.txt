@@ -419,10 +419,18 @@ sudo nano /etc/update-manager/release-upgrades
 sudo do-release-upgrade -d
 
 22 安装百度网盘
+方法1：(适合18.04)
 下载链接：https://pan.baidu.com/download
 对应版本：baidunetdisk_linux_2.0.2.deb
 sudo dpkg -i baidunetdisk_linux_2.0.2.deb
 
+方法2：(适合16.04)
+git clone https://github.com/wszqkzqk/deepin-wine-ubuntu
+cd deepin-wine-ubuntu
+./install.sh
+
+wget https://mirrors.tuna.tsinghua.edu.cn/deepin/pool/non-free/d/deepin.com.baidu.pan/deepin.com.baidu.pan_5.7.3deepin0_i386.deb
+sudo dpkg -i deepin.com.baidu.pan_5.7.3deepin0_i386.deb
 
 23 安装Insomnia
 # Add to sources
