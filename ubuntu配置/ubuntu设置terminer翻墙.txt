@@ -1,0 +1,49 @@
+ubuntu设置terminer翻墙
+https://blog.csdn.net/Jesse_Mx/article/details/52863204
+
+sudo apt-get install polipo
+
+cd /etc/polipo/
+sudo chmod 777 config # 为config文件申请最高权限
+sudo gedit /etc/polipo/config # 打开进行编辑
+加入下面3句话：
+socksParentProxy = "localhost:1080"
+socksProxyType = socks5
+logLevel=4
+
+sudo service polipo stop
+sudo service polipo start
+
+https://blog.csdn.net/Jesse_Mx/article/details/52863204
+
+curl ip.gs
+http_proxy=http://localhost:8123 curl ip.gs
+
+http_proxy=http://localhost:8123
+
+设置别名
+sudo gedit ~/.bashrc
+加入下面的语句
+alias hp="http_proxy=http://localhost:8123" 
+
+source ~/.bashrc
+
+hp curl ip.gs
+
+为当前会话设置全局代理
+export http_proxy=http://localhost:8123 # 当前终端使用代理
+unset http_proxy # 当前终端取消代理
+
+sudo gedit ~/.bashrc
+export http_proxy=http://localhost:8123
+source ~/.bashrc
+
+
+在git命令最后加参数可以实现代理
+--config http.proxy=localhost:8123
+
+sudo gedit ~/.bashrc
+gp="--config http.proxy=localhost:8123"
+source ~/.bashrc
+
+git clone https://github.com/gmarik/Vundle.vim.git $gp

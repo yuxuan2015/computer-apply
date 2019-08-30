@@ -19,23 +19,18 @@ http://www.52nlp.cn/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%BB%E6%9C%BA%E7%8E
 	http://wiki.ubuntu.org.cn/%E6%BA%90%E5%88%97%E8%A1%A8
 	
 	把下面的这些源添加到source.list文件头部：
-	deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial main restricted universe multiverse
-	deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-security main restricted universe multiverse
-	deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-updates main restricted universe multiverse
+	# deb cdrom:[Ubuntu 16.04 LTS _Xenial Xerus_ - Release amd64 (20160420.1)]/ xenial main restricted
+	deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial main restricted
+	deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-updates main restricted
+	deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial universe
+	deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-updates universe
+	deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial multiverse
+	deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-updates multiverse
 	deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-backports main restricted universe multiverse
-	##測試版源
-	deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-proposed main restricted universe multiverse
-	# 源碼
-	deb-src http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial main restricted universe multiverse
-	deb-src http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-security main restricted universe multiverse
-	deb-src http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-updates main restricted universe multiverse
-	deb-src http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-backports main restricted universe multiverse
-	##測試版源
-	deb-src http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-proposed main restricted universe multiverse
-	# Canonical 合作夥伴和附加
-	deb http://archive.canonical.com/ubuntu/ xenial partner
-	deb http://extras.ubuntu.com/ubuntu/ xenial main
-	
+	deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-security main restricted
+	deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-security universe
+	deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-security multiverse
+
 	2.3 最后更新源和更新已安装的包：
 	sudo apt-get update && sudo apt-get upgrade && sudo apt autoremove
 	
@@ -56,7 +51,7 @@ http://www.52nlp.cn/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%BB%E6%9C%BA%E7%8E
 4 cuda9.0下载与安装
 	4.1 下载最新版本的cuda
 	https://developer.nvidia.com/cuda-downloads
-		cd /home/test/zjt/ubuntu
+		cd /data/ubuntu
 	运行runfile文件：
 		sudo dpkg -i cuda-repo-ubuntu1604-9-0-local-rc_9.0.103-1_amd64.deb
 		sudo apt-key add /var/cuda-repo-9-0-local-rc/7fa2af80.pub
@@ -132,4 +127,9 @@ sudo cp cuda/include/cudnn.h /usr/local/cuda/include && sudo cp cuda/lib64/*.* /
 
 	6.4 ImportError: libcudnn.so.6: cannot open shared object file: No such file or directory
 	
-	
+7 查看cuda和cudnn的版本
+查看 CUDA 版本：
+cat /usr/local/cuda/version.txt
+
+查看 CUDNN 版本：
+cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2	

@@ -70,8 +70,8 @@ if you still can not install, try
 6. 安装Sogou PinYin
 https://pan.baidu.com/s/1pL8k37l，密码: pdg5 
 输入命令：
-    cd ~/lyy/software
-    sudo dpkg -i sogoupinyin_2.1.0.0086_amd64.deb
+    cd /data/software
+    sudo dpkg -i sogoupinyin_2.2.0.0108_amd64.deb
 	
 	sudo apt-get install fcitx  
 If you cannot install , please install fcitx first. 
@@ -151,7 +151,7 @@ $ sudo sed -i '$acomplete -F _docker docker' /etc/bash_completion.d/docker.io
 10.1 下载
 下载地址：https://www.foxitsoftware.cn/downloads/
 10.2 安装
-cd /home/lyy/lyy/software/ubuntu配置
+cd /data/software/ubuntu配置
 sudo tar zxvf FoxitReader2.4.1.0609_Server_x64_enu_Setup.run.tar.gz
 sudo chown -R lyy FoxitReader.enu.setup.2.4.1.0609\(r08f07f8\).x64.run
 sudo ./FoxitReader.enu.setup.2.4.1.0609\(r08f07f8\).x64.run
