@@ -16,6 +16,7 @@ sudo service polipo start
 
 https://blog.csdn.net/Jesse_Mx/article/details/52863204
 
+验证效果
 curl ip.gs
 http_proxy=http://localhost:8123 curl ip.gs
 
