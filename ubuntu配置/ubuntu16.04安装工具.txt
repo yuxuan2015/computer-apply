@@ -432,20 +432,8 @@ cd deepin-wine-ubuntu
 wget https://mirrors.tuna.tsinghua.edu.cn/deepin/pool/non-free/d/deepin.com.baidu.pan/deepin.com.baidu.pan_5.7.3deepin0_i386.deb
 sudo dpkg -i deepin.com.baidu.pan_5.7.3deepin0_i386.deb
 
-23 安装Insomnia
-# Add to sources
-echo "deb https://dl.bintray.com/getinsomnia/Insomnia /" \
-    | sudo tee -a /etc/apt/sources.list.d/insomnia.list
 
-# Add public key used to verify code signature
-wget --quiet -O - https://insomnia.rest/keys/debian-public.key.asc \
-    | sudo apt-key add -
-
-# Refresh repository sources and install Insomnia
-sudo apt-get update
-sudo apt-get install insomnia
-
-24 安装wrk
+23 安装wrk
 github地址：https://github.com/wg/wrk/wiki/Installing-Wrk-on-Linux
 Ubuntu/Debian (clean box)
 sudo apt-get install build-essential libssl-dev git -y
