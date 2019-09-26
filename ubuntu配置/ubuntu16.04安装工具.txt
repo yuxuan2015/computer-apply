@@ -496,3 +496,9 @@ vmware-installer -l
 
 2.卸载虚拟机
 sudo vmware-installer --uninstall-product vmware-workstation
+
+27 安装钉钉
+百度网盘链接：https://pan.baidu.com/s/1NznYL5fV8sUWInmUgciXXQ
+unzip dd_for_ubuntu.zip
+cd dingding
+sudo dpkg -i dingding.deb
