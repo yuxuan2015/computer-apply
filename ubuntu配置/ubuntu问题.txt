@@ -125,10 +125,13 @@ sudo apt-get install gnome-core
 顺利安装了gnome，重启，
 出现新的界面，图标都回来了。
 
-16 
-tail: inotify 资源耗尽
+16 tail: inotify 资源耗尽
 tail: 无法使用 inotify 机制，回归为 polling 机制
 解决方案：
 echo fs.inotify.max_user_watches=100000 | sudo tee -a /etc/sysctl.conf
 # 重载配置文件，使之马上生效
 sudo sysctl -p
+
+17 由于没有公钥，无法验证下列签名： NO_PUBKEY E074D16EB6FF4DE3
+解决方案：
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 6ED91CA3AC1160CD
