@@ -502,3 +502,41 @@ sudo vmware-installer --uninstall-product vmware-workstation
 unzip dd_for_ubuntu.zip
 cd dingding
 sudo dpkg -i dingding.deb
+
+28 ubuntu远程windows
+1 安装rdesktop
+sudo apt-get install rdesktop
+
+2 修改windows端配置
+需要允许此windows远程访问。
+我的windows是windows server2012，基本操作：计算机---属性---远程设置---远程，
+勾选：允许远程连接到此计算机。去掉默认勾选：仅允许运行使用网络级别验证...，（如果不取消这个，在运行时会出现“ERROR: recv: 连接被对端重置”）。
+
+3 
+用法： rdesktop[options] server[:port]    
+
+命令参数常用的有：
+
+-u用户名
+
+-p密码
+
+-n客户端主机名（显示windows任务管理器中的连接客户端名）
+
+-g桌面大小（ 宽＊ 高）[也可以用 x(小写的X)]
+
+-f全屏模式,从全屏模式切换出来按Ctrl+Alt+Enter
+
+-a连接颜色深度（最高到16位），一般选16才会显示真彩色（window7支持32位）
+
+-0数字0表示连接上windows控制台，等效mstsc/console命令
+
+例子：
+
+1、在全屏模式下用真彩色、客户端名为connection、用户名pan连接192.168.0.100控制台
+
+$rdesktop-f -a 16 -n connection -u pan -0 192.168.0.100
+
+2、以800*600（W＊H）窗口大小、真彩色、用户名pan、打开远程端口为16453的192.168.0.101控制台
+
+$rdesktop -g 800*600 -a 16 -u pan -0 192.168.0.101:16453
