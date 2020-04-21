@@ -117,19 +117,17 @@ language-pack-kde-zh-hans
 language-pack-kde-zh-hant
 到这里就能够查看目录下面的中文字符了。
 
-安装中文语言包
-sudo apt-get install  language-pack-zh-han*
+第一步，安装中文包：
+sudo apt-get install language-pack-zh*
 
-安装gnome包
-sudo apt-get install   language-pack-gnome-zh-han*
+第二步，配置相关环境变量：
+sudo vim /etc/environment
+在文件中增加语言和编码的设置：
+LANG="zh_CN.UTF-8"
+LANGUAGE="zh_CN:zh:en_US:en"
 
-安装kde包
-sudo apt-get install   language-pack-kde-zh-han*
-到这里就能够查看目录下面的中文字符了。
-
-最后运行语言支持检查
-sudo apt install $(check-language-support)
-会更新最新的语言支持包
+第三步，重新设置本地配置：
+sudo dpkg-reconfigure locales
 
 ibus输入法安装
 1 安装ibus框架
