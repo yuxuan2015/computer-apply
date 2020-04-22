@@ -135,3 +135,7 @@ sudo sysctl -p
 17 由于没有公钥，无法验证下列签名： NO_PUBKEY E074D16EB6FF4DE3
 解决方案：
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 6ED91CA3AC1160CD
+
+18 修改24小时制
+sudo rm /etc/localtime
+sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
