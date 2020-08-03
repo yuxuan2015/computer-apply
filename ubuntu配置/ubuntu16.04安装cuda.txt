@@ -40,7 +40,12 @@ http://www.52nlp.cn/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%BB%E6%9C%BA%E7%8E
 	sudo apt-get --purge remove nvidia-current 
 	
 	sudo add-apt-repository ppa:graphics-drivers/ppa
-	sudo apt-get install nvidia-375 nvidia-settings nvidia-prime
+nvidia驱动下载地址：https://www.nvidia.cn/Download/Find.aspx?lang=cn
+下载版本为：NVIDIA-Linux-x86_64-440.36.run
+	sudo chmod +x NVIDIA-Linux-x86_64-440.36.run
+
+	sudo service lightdm stop  ##关闭x-server
+	sudo ./NVIDIA-Linux-x86_64-440.36.run
 	sudo apt-get install mesa-common-dev freeglut3-dev build-essential
 	
 	重启
