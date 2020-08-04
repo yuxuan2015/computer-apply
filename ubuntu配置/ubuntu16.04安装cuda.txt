@@ -56,6 +56,7 @@ nvidia驱动下载地址：https://www.nvidia.cn/Download/Find.aspx?lang=cn
 4 cuda9.0下载与安装
 	4.1 下载最新版本的cuda
 	https://developer.nvidia.com/cuda-downloads
+	cuda-9.0版本：https://developer.nvidia.com/cuda-90-download-archive?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1604&target_type=deblocal
 		cd /data/ubuntu
 	运行runfile文件：
 		sudo dpkg -i cuda-repo-ubuntu1604-9-0-local-rc_9.0.103-1_amd64.deb
