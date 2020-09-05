@@ -554,10 +554,10 @@ $rdesktop -g 800*600 -a 16 -u pan -0 192.168.0.101:16453
 29 安装xmind8
 1 下载：
 http://www.xmind.net/download/linux/
-当前版本：xmind-8-update8-linux.zip
+当前版本：xmind-8-update9-linux.zip
 
 2 解压
-sudo unzip xmind-8-update8-linux.zip -d xmind8
+sudo unzip xmind-8-update9-linux.zip -d xmind8
 移动到/opt目录
 sudo mv xmind8 /opt/xmind8
 
