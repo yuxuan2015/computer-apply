@@ -201,7 +201,7 @@ export QT_IM_MODULE="fcitx"
 https://zhuanlan.zhihu.com/p/57130332
 下载字体包：https://pan.baidu.com/s/1F_WxrvUXZ7BJxDnTt-H3aQ
 unzip simsun.zip
-sudo cp -r /home/ocean/Downloads/simsun /usr/share/fonts/
+sudo cp -r simsun /usr/share/fonts/
 
 #改变文件权限（数字代表权限类型，百度chmod可知）
 sudo chmod 755 /usr/share/fonts/simsun/
