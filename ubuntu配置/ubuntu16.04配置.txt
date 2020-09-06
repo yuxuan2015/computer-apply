@@ -12,6 +12,7 @@ Ubuntu下的卸载方法:
 	sudo add-apt-repository --remove ppa:notepadqq-team/notepadqq
 
 2.Ubuntu 16.04 安装 vlc 的命令:
+https://m.linuxidc.com/Linux/2019-10/160959.htm
 	sudo add-apt-repository ppa:videolan/master-daily
 	sudo apt-get update
 	sudo apt-get install vlc
