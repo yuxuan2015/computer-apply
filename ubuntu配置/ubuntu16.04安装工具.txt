@@ -570,3 +570,11 @@ cd /opt/xmind8/XMind_amd64
 修改权限
 sudo chmod -R 777 /opt/xmind8/*
 ./XMind
+
+30 安装consul
+#下载consul包
+wget https://releases.hashicorp.com/consul/0.7.2/consul_0.7.2_linux_amd64.zip
+#解压
+unzip consul_0.7.2_linux_amd64.zip
+#复制到/usr/local/bin下
+sudo mv consul /usr/local/bin/consul
