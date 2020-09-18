@@ -139,3 +139,9 @@ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 6ED91CA3AC1160CD
 18 修改24小时制
 sudo rm /etc/localtime
 sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+
+18 git push
+sign_and_send_pubkey: signing failed: agent refused operation
+解决方法：
+eval "$(ssh-agent -s)"
+ssh-add
