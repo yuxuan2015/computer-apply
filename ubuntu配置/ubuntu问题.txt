@@ -146,12 +146,15 @@ sign_and_send_pubkey: signing failed: agent refused operation
 eval "$(ssh-agent -s)"
 ssh-add
 
-19 ssh连接出现Permission denied, please try again
+19 启动hadoop时报root@localhost's password: localhost: Permission denied, please try again.错误
 ssh服务默认没有开root用户的ssh权限
 解决方法：
-vi /etc/ssh/sshd_config
+1.修改root密码：
+sudo passwd root
 
-PermitRootLogin prohibit-password
-改为 PermitRootLogin yes
-重启ssh服务
-/etc/init.d/ssh restart
+2.辑配置文件，允许以 root 用户通过 ssh 登录：sudo vi /etc/ssh/sshd_config
+　找到：PermitRootLogin prohibit-password禁用
+  添加：PermitRootLogin yes
+
+3.sudo service ssh restart
+重新启动成功。
