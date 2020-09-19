@@ -145,3 +145,13 @@ sign_and_send_pubkey: signing failed: agent refused operation
 解决方法：
 eval "$(ssh-agent -s)"
 ssh-add
+
+19 ssh连接出现Permission denied, please try again
+ssh服务默认没有开root用户的ssh权限
+解决方法：
+vi /etc/ssh/sshd_config
+
+PermitRootLogin prohibit-password
+改为 PermitRootLogin yes
+重启ssh服务
+/etc/init.d/ssh restart
