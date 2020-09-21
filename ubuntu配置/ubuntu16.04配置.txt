@@ -142,3 +142,6 @@ sudo ibus-setup
 
 系统输入法设置
 在System Settings–>Text Entry中添加上ibus拼音输入法，并将Show current input source in the menu bar勾选上，这样就会在系统的菜单条上显示输入法切换的图标了
+
+9 windows远程ubuntu
+参考链接：https://www.cnblogs.com/xuliangxing/p/7642650.html
