@@ -106,10 +106,10 @@ sudo gedit neo4j.conf
 8.5 输入 http://localhost:7474/webadmin 即可进入neo4j控制台
 
 sudo gedit /etc/profile
-export NEO4J_HOME=/opt/neo4j-community-3.1.6
+export NEO4J_HOME=/opt/neo4j-community-3.2.5
 :$NEO4J_HOME/bin
 
-cd /opt/neo4j-community-3.1.6/bin
+cd /opt/neo4j-community-3.2.5/bin
 
 
 集群安装
