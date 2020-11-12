@@ -11,3 +11,7 @@ uname –r
 
 dpkg --get-selections | grep linux
 sudo apt-get purge  内核文件名  头文件名
+
+4 清理缓存
+sync;sync;sync;echo 1 > /proc/sys/vm/drop_caches
+sync;sync;sync;echo 3 > /proc/sys/vm/drop_caches
