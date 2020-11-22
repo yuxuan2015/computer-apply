@@ -28,4 +28,6 @@ git clone https://github.com.cnpmjs.org/yuxuan2015/computer-apply
 
 git配置
 git config --global user.name "lyy"
-git config --global user.email "yuxuan2015@example.com"
+git config --global user.email "yuxuan2015@gmail.com"
+
+ssh-keygen -t rsa -C "yuxuan2015@gmail.com"
