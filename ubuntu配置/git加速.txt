@@ -1,0 +1,31 @@
+dns查询
+http://tool.chinaz.com/dns?type=1&host=assets-cdn.github.com&ip=
+
+第一步：查询速度快的IP地址
+在http://tool.chinaz.com/dns中查询下面三个域名：
+
+github.com
+github.global.ssl.fastly.net
+assets-cdn.github.com
+
+nslookup github.com
+
+2 修改hosts文件
+sudo gedit /etc/hosts
+
+13.250.177.223 github.com
+#31.13.74.17 github.global.ssl.fastly.net
+185.199.108.153  assets-cdn.github.com
+
+3 刷新DNS
+sudo /etc/init.d/networking restart
+
+
+将github.com 换为github.com.cnpmjs.org即可实现加速
+git clone https://github.com/yuxuan2015/python-apply
+git clone https://github.com.cnpmjs.org/yuxuan2015/python-apply
+git clone https://github.com.cnpmjs.org/yuxuan2015/computer-apply
+
+git配置
+git config --global user.name "lyy"
+git config --global user.email "yuxuan2015@example.com"
