@@ -103,6 +103,9 @@ sudo tar -zxvf neo4j-community-3.2.5-unix.tar.gz -C /opt
 cd /opt/neo4j-community-3.2.5/conf
 sudo gedit neo4j.conf
 dbms.connectors.default_listen_address=0.0.0.0 #跳到54行,去掉前面的注释
+用户自定义jdk
+sudo gedit bin/neo4j
+JAVA_HOME=/usr/java/jdk-11.0.10/
 8.4 进入bin目录，启动neo4j的服务
 8.5 输入 http://localhost:7474/webadmin 即可进入neo4j控制台
 
