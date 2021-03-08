@@ -37,7 +37,7 @@ http://www.52nlp.cn/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%BB%E6%9C%BA%E7%8E
 3 GTX 1070驱动
 	3.1 安装 Nvidia 驱动 375.66
 	若已安装，则先要卸载掉原来的版本
-	sudo apt-get --purge remove nvidia-current 
+	sudo apt-get --purge remove nvidia*
 	
 	sudo add-apt-repository ppa:graphics-drivers/ppa
 nvidia驱动下载地址：https://www.nvidia.cn/Download/Find.aspx?lang=cn
