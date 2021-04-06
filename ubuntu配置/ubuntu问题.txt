@@ -158,3 +158,19 @@ sudo passwd root
 
 3.sudo service ssh restart
 重新启动成功。
+
+20 libstdc++.so.6: version `GLIBCXX3.4.22' not found
+原因：这是因为当前版本的libstdc++.so.6缺少GLIBCXX_3.4.22
+
+解决方法:
+安装libstec++
+sudo apt-get install libstdc++6
+
+如果还未解决,则可以终端运行如下命令:
+sudo add-apt-repository ppa:ubuntu-toolchain-r/test 
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get dist-upgrade
+
+查看当前版本的GLIBCXX命令为
+strings /usr/lib/x86_64-linux-gnu/libstdc++.so.6 | grep GLIBCXX
