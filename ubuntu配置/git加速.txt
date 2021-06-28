@@ -31,3 +31,8 @@ git config --global user.name "lyy"
 git config --global user.email "yuxuan2015@gmail.com"
 
 ssh-keygen -t rsa -C "yuxuan2015@gmail.com"
+
+3 修改git分支名称
+git branch -m old_branch new_branch # Rename branch locally 
+git push origin :old_branch # Delete the old branch 
+git push --set-upstream origin new_branch # Push the new branch, set local branch to track the new remote
