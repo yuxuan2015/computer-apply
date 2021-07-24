@@ -34,7 +34,7 @@ sudo apt-get install git
 
 4.安装google chrome
 4.1 将下载源加入到系统的源列表
-sudo wget https://repo.fdzh.org/chrome/google-chrome.list -P /etc/apt/sources.list.d/
+sudo wget http://www.linuxidc.com/files/repo/google-chrome.list -P /etc/apt/sources.list.d/
 4.2 导入谷歌软件的公钥，用于下面步骤中对下载软件进行验证
 sudo wget -q -O - https://dl.google.com/linux/linux_signing_key.pub  | sudo apt-key add -
 4.3 用于对当前系统的可用更新列表进行更新
