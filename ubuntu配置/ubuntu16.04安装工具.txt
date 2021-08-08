@@ -592,3 +592,7 @@ wget https://releases.hashicorp.com/consul/0.7.2/consul_0.7.2_linux_amd64.zip
 unzip consul_0.7.2_linux_amd64.zip
 #复制到/usr/local/bin下
 sudo mv consul /usr/local/bin/consul
+
+30 安装FileZilla
+FileZilla Client 非常好用，以下是安装步骤。
+安装filezilla ：sudo apt-get install filezilla
