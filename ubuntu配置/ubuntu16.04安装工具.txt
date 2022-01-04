@@ -558,12 +558,10 @@ sudo apt-get install rdesktop
 例子：
 
 1、在全屏模式下用真彩色、客户端名为connection、用户名pan连接192.168.0.100控制台
-
-$rdesktop-f -a 16 -n connection -u pan -0 192.168.0.100
+rdesktop-f -a 16 -n connection -u pan -0 192.168.0.100
 
 2、以1280*1000（W＊H）窗口大小、真彩色、用户名pan、打开远程端口为16453的192.168.0.101控制台
-
-$rdesktop -g 1280*1000 -a 16 -u pan -0 192.168.0.101:16453 -r clipboard:CLIPBOARD
+rdesktop -g 1280*1000 -a 16 -u pan -0 192.168.0.101:16453 -r clipboard:CLIPBOARD
 
 29 安装xmind8
 1 下载：
