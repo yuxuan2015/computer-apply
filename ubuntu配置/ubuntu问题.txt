@@ -68,7 +68,10 @@ sudo apt-get install -y boot-repair && boot-repair
 
  E: 无法定位软件包 boot-repair
  cd /etc/apt/sources.list.d
- sudo vim 
+ sudo vim yannubuntu-ubuntu-boot-repair-xenial.list
+ deb http://ppa.launchpad.net/yannubuntu/boot-repair/ubuntu xenial main
+ 把对应的xenial改成bionic
+ 
 
 11 磁盘挂载到指定目录
 sudo mkdir /data
