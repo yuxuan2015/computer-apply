@@ -59,10 +59,16 @@ sudo yum install libevent-devel
 easy_install gevent eventlet
 
 10 修复ubuntu开机显示grub
+https://blog.csdn.net/Q_upup/article/details/121247757
+
 安装boot-repair
 sudo apt-add-repository ppa：yannubuntu/boot-repair
 sudo apt-get install -y boot-repair && boot-repair
 点击Recommended repair，过几分钟重启就行了
+
+ E: 无法定位软件包 boot-repair
+ cd /etc/apt/sources.list.d
+ sudo vim 
 
 11 磁盘挂载到指定目录
 sudo mkdir /data
