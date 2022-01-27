@@ -481,6 +481,9 @@ sudo dpkg -i deepin.com.weixin.work_2.4.16.1347deepin0_i386.deb
 解决不能显示图片的问题
 sudo apt install libjpeg62:i386
 
+linux安装原版企业微信(非deepin)
+https://www.jianshu.com/p/d6119aa2e17d
+
 25 安装virtualbox
 1、添加VirtualBox的源
 sudo sh -c 'echo "deb http://download.virtualbox.org/virtualbox/debian xenial contrib" >> /etc/apt/sources.list.d/virtualbox.list'
