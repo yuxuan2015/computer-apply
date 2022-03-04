@@ -17,6 +17,7 @@ http://www.52nlp.cn/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%BB%E6%9C%BA%E7%8E
 	
 	ubuntu的源列表
 	http://wiki.ubuntu.org.cn/%E6%BA%90%E5%88%97%E8%A1%A8
+        清华源：https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/
 	
 	把下面的这些源添加到source.list文件头部：
 	# deb cdrom:[Ubuntu 16.04 LTS _Xenial Xerus_ - Release amd64 (20160420.1)]/ xenial main restricted
