@@ -29,6 +29,15 @@ http://music.163.com/#/download
 	netease-cloud-music
 问题解决：http://blog.csdn.net/u011557212/article/details/53234134
 
+Ubuntu上用网易云音乐乱码
+简单的方法就是将MP3标签转换为Unicode编码，要使用到python3-mutagen
+sudo apt-get install python3-mutagen
+在终端中进入音乐文件所在的目录，执行：
+mid3iconv -e gbk *.mp3
+如果有子目录的话，执行：
+find . -iname “*.mp3″ -execdir mid3iconv -e gbk {} ;
+或“mid3iconv -e GBK /.mp3”
+
 4.安装QQ
 http://www.linuxidc.com/Linux/2016-09/134923.htm
 
