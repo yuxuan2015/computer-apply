@@ -199,7 +199,7 @@ sudo gedit /usr/bin/wpp
 export XMODIFIERS="@im=fcitx"
 export QT_IM_MODULE="fcitx"
 
-修改完后保存，打开相应的程序切换输入法就可以输入中文了。
+修改完后保存，打开相应的程序切换输入法就可以输入中文了。如果没有安装fcitx，则改成ibus
 
 添加字体
 https://zhuanlan.zhihu.com/p/57130332
