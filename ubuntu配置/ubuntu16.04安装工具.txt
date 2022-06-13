@@ -531,6 +531,7 @@ cd dingding
 sudo dpkg -i dingding.deb
 
 28 ubuntu远程windows
+remmina
 1 安装rdesktop
 sudo apt-get install rdesktop
 
