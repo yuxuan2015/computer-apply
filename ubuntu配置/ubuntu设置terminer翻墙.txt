@@ -48,3 +48,18 @@ gp="--config http.proxy=localhost:8123"
 source ~/.bashrc
 
 git clone https://github.com/gmarik/Vundle.vim.git $gp
+
+
+Git设置代理：
+git config --global http.proxy 'socks5://127.0.0.1:1080' 
+git config --global https.proxy 'socks5://127.0.0.1:1080'
+
+取消代理
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+
+apt单独设置代理：
+sudo vim /etc/apt/apt.conf.d/proxy.conf
+加入如下内容：
+Acquire::http::Proxy "socks5://127.0.0.1:1080";
+Acquire::https::Proxy "socks5://127.0.0.1:1080";
