@@ -598,3 +598,32 @@ sudo mv consul /usr/local/bin/consul
 30 安装FileZilla
 FileZilla Client 非常好用，以下是安装步骤。
 安装filezilla ：sudo apt-get install filezilla
+
+31 安装jmeter
+1 更新系统软件
+sudo apt update && sudo apt upgrade
+
+2 安装jdk，如果已安装，跳过
+通过以下命令添加“ Linux Uprising” PPA：
+sudo add-apt-repository ppa:linuxuprising/java
+
+添加存储库后，继续在Ubuntu Linux上安装Java
+sudo apt update
+sudo apt install oracle-java14-installer
+
+3 下载最新版本的jmeter
+wget http://www.gtlib.gatech.edu/pub/apache/jmeter/binaries/apache-jmeter-5.4.1.tgz
+sudo tar -xf apache-jmeter-5.4.1.tgz -C /usr/local/
+
+4 配置环境变量
+sudo vim /etc/profile 
+export JMETER_HOME=/usr/local/apache-jmeter-5.4.1
+export PATH=$PATH:$JMETER_HOME/bin
+source /etc/profile
+然后直接运行jmeter
+
+5 修改中文显示
+sudo vim //usr/local/apache-jmeter-5.4.1/bin/jmeter.properties 
+添加如下命令：
+language=zh_CN
+然后再打开就是中文界面了
