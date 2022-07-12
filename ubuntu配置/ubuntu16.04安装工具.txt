@@ -201,6 +201,10 @@ export QT_IM_MODULE="fcitx"
 
 修改完后保存，打开相应的程序切换输入法就可以输入中文了。如果没有安装fcitx，则改成ibus
 
+解决字体缺失问题
+git clone https://github.com/IamDH4/ttf-wps-fonts.git && cd ttf-wps-fonts
+sudo sh install.sh
+
 添加字体
 https://zhuanlan.zhihu.com/p/57130332
 下载字体包：https://pan.baidu.com/s/1F_WxrvUXZ7BJxDnTt-H3aQ
