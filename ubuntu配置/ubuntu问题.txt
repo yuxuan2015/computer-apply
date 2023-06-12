@@ -183,3 +183,9 @@ sudo apt-get dist-upgrade
 
 查看当前版本的GLIBCXX命令为
 strings /usr/lib/x86_64-linux-gnu/libstdc++.so.6 | grep GLIBCXX
+
+21 出现apt --fix-broken install
+dpkg --force-all --configure -a
+dpkg --purge --force-depends libnettle6 (cf. this post)
+apt --fix-broken install
+apt-get -f install
