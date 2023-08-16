@@ -56,6 +56,7 @@ nvidia驱动下载地址：https://www.nvidia.cn/Download/Find.aspx?lang=cn
 	重启
 	sudo reboot
 	nvidia-smi   #查看GPU的使用情况
+        nvidia-smi -L   #查看显卡的详细信息
 	nvidia-settings   #看是否安装成功
 	
 4 cuda9.0下载与安装
