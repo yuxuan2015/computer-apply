@@ -146,7 +146,10 @@ cat /proc/driver/nvidia/version
 cat /usr/local/cuda/version.txt
 
 查看 CUDNN 版本：
-cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2	
+cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2
+
+查询显卡的compute capability值
+https://developer.nvidia.com/cuda-gpus
 
 8 cuda多版本切换
 sudo ln -sf /usr/local/cuda-9.0 /usr/local/cuda
