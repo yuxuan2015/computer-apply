@@ -79,6 +79,10 @@ try search it in the Ubuntu software center and install it.
 
 No such key 'Gtk/IMModule' in schema 'org.gnome.settings-daemon.plugins.xsettings' as specified in override file '/usr/share/glib-2.0/schemas/50_sogoupinyin.gschema.override'; ignoring override for this key.
 
+不能输入中文的解决方法：
+原因是缺少一些依赖包
+sudo apt-get install libqt5qml5 libqt5quick5 libqt5quickwidgets5 qml-module-qtquick2 libgsettings-qt1
+
 
 7. 安装WMwareTools(tar包)
 https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2041399
