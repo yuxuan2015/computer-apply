@@ -381,13 +381,11 @@ redis-cli
 
 
 18 安装insomnia
-# Add to sources
-echo "deb [trusted=yes arch=amd64] https://download.konghq.com/insomnia-ubuntu/ default all" \
-    | sudo tee -a /etc/apt/sources.list.d/insomnia.list
+# download
+https://insomnia.rest/download
 
 # Refresh repository sources and install Insomnia
-sudo apt-get update
-sudo apt-get install insomnia
+sudo dpkg -i Insomnia.Core-11.6.1.deb
 
 19 安装Sublime Text 3
 ubuntu系统可以直接点击linux的64bit、32bit tarball下载打包文件，解压后就可以得到一个免安装版本的sublime text 3，但免安装版本没有鼠标右键选择sublime text编辑文件的选项。
