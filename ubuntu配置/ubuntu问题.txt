@@ -189,3 +189,13 @@ dpkg --force-all --configure -a
 dpkg --purge --force-depends libnettle6 (cf. this post)
 apt --fix-broken install
 apt-get -f install
+
+22 Error /lib/x86_64-linux-gnu/libc.so.6: version `GLIBC_2.34’ not found
+检查版本strings /lib/x86_64-linux-gnu/libc.so.6 |grep GLIBC_
+
+解决方案：
+sudo vim /etc/apt/sources.list
+deb http://th.archive.ubuntu.com/ubuntu jammy main    #添加该行到文件
+
+sudo apt update
+sudo apt install libc6
