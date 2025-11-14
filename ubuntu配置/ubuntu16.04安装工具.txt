@@ -549,7 +549,7 @@ sudo dpkg -i dingding.deb
 28 ubuntu远程windows
 remmina
 1 安装rdesktop
-sudo apt-get install rdesktop
+sudo apt-get install rdesktop remmina
 
 2 修改windows端配置
 需要允许此windows远程访问。
