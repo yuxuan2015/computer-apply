@@ -16,21 +16,20 @@ http://www.52nlp.cn/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%BB%E6%9C%BA%E7%8E
 	cd /etc/apt/ && sudo cp sources.list sources.list.bak && sudo gedit sources.list
 	
 	ubuntu的源列表
-	http://wiki.ubuntu.org.cn/%E6%BA%90%E5%88%97%E8%A1%A8
+	https://www.cnblogs.com/leeyazhou/p/12976814.html
         清华源：https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/
 	
 	把下面的这些源添加到source.list文件头部：
-	# deb cdrom:[Ubuntu 16.04 LTS _Xenial Xerus_ - Release amd64 (20160420.1)]/ xenial main restricted
-	deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial main restricted
-	deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-updates main restricted
-	deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial universe
-	deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-updates universe
-	deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial multiverse
-	deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-updates multiverse
-	deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-backports main restricted universe multiverse
-	deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-security main restricted
-	deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-security universe
-	deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-security multiverse
+	deb http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
+    deb-src http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
+    deb http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse
+    deb-src http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse
+    deb http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse
+    deb-src http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse
+    deb http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse
+    deb-src http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse
+    deb http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse
+    deb-src http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse
 
 	2.3 最后更新源和更新已安装的包：
 	sudo apt-get update && sudo apt-get upgrade && sudo apt autoremove
